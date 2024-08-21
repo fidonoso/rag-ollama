@@ -1,0 +1,18 @@
+services:
+  chroma:
+    image: chromadb/chroma:0.5.2
+    container_name: chroma
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./chroma-data:/chroma/chroma
+    networks:
+      - chroma_net
+
+
+# http://localhost:8000/api/v1
+# http://localhost:8000/docs
+
+networks:
+  chroma_net:
+    driver: bridge
